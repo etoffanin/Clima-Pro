@@ -1,4 +1,4 @@
-const key = Process.env.API_KEY;
+const key = API_KEY;
 require("dotenv").config();
 
 function ColocarDadosNaTela(dados) {
