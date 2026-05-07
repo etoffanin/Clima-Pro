@@ -1,5 +1,4 @@
-const key = API_KEY;
-require("dotenv").config();
+const key = "921dffdcf9f45632fab536a0fc7a6850";
 
 function ColocarDadosNaTela(dados) {
     document.querySelector(".cidade").innerHTML = "Tempo em " + dados.name;
@@ -20,8 +19,7 @@ async function buscarCidade(cidade) {
 
     try {
         const resposta = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`
-        );
+  `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`);
 
         const dados = await resposta.json();
 
