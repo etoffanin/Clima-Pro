@@ -7,7 +7,7 @@ A ideia aqui foi sair da teoria e construir algo simples, mas que consome uma AP
 
 ## 🔗 ACESSE O PROJETO
 
-👉 https://etoffanin.github.io/Clima-Pro-1.0/
+👉 https://etoffanin.github.io/Clima-Pro/
 
 ---
 
@@ -102,8 +102,8 @@ Esse projeto foi importante pra praticar:
 ## ⚙️ COMO RODAR LOCALMENTE
 
 ```bash
-git clone https://github.com/etoffanin/Clima-Pro-1.0.git
-cd Clima-Pro-1.0
+git clone https://github.com/etoffanin/Clima-Pro.git
+cd Clima-Pro
 ```
 
 Depois é só abrir o arquivo **index.html** no navegador.
