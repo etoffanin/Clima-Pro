@@ -1,140 +1,206 @@
-# 🌦️ CLIMA PRO 1.0
+# <div align="center">🌦️ CLIMA PRO</div>
 
-Esse foi meu primeiro projeto de previsão do tempo funcionando de verdade na web.
-A ideia aqui foi sair da teoria e construir algo simples, mas que consome uma API real e entrega informação útil.
+<div align="center">
 
----
+### Aplicação moderna de previsão do tempo com foco em experiência visual, responsividade e evolução contínua.
 
-## 🔗 ACESSE O PROJETO
+<img src="https://img.shields.io/badge/version-v1.1.0-8fd8ff?style=for-the-badge">
+<img src="https://img.shields.io/badge/status-em%20desenvolvimento-0f172a?style=for-the-badge">
+<img src="https://img.shields.io/badge/project-personal-1e293b?style=for-the-badge">
 
-👉 https://etoffanin.github.io/Clima-Pro/
-
----
-
-## 📸 PREVIEW
-
-Versão no DeskTop
-<<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/5d051800-4db2-4344-b4db-598fcb433b2f" />
- />
-
-Versão no Celular
-<<img width="720" height="1600" alt="WhatsApp Image 2026-05-07 at 19 49 21" src="https://github.com/user-attachments/assets/efacda92-9942-4a1b-912e-7e9c700abb46" />
- />
-
-*
+</div>
 
 ---
 
-## ✨ FUNCIONALIDADES
+# 📌 SOBRE O PROJETO
 
-✔️ Busca de clima por cidade
+O **Clima Pro** é um projeto focado em previsão do tempo com uma interface moderna, minimalista e responsiva.
 
-✔️ Temperatura atual em tempo real
+A proposta do projeto vai além de apenas mostrar temperatura e clima atual. O objetivo é criar uma experiência visual agradável, dinâmica e futuramente interativa, com temas automáticos, animações climáticas e funcionalidades inteligentes.
 
-✔️ Condição do clima (ex: nublado, ensolarado)
+Esse projeto também faz parte da minha evolução como desenvolvedor, sendo utilizado para praticar:
 
-✔️ Integração com API externa
-
-✔️ Projeto online via GitHub Pages
-
-✔️ Geolocalização automática
-
-
----
-
-## 🧠 COMO FUNCIONA POR TRÁS
-
-A lógica do projeto é:
-
-1. O usuário digita o nome da cidade
-2. O JavaScript captura esse valor
-3. Faço uma requisição para a API usando `fetch`
-4. Recebo os dados em JSON
-5. Atualizo o HTML com as informações
-
-Exemplo da requisição:
-
-```javascript
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=SUA_API_KEY&units=metric`)
-```
-
-Depois disso, uso os dados retornados pra mostrar:
-
-* temperatura
-* clima
-* informações principais
-
-Tudo isso manipulando o DOM.
+* Estruturação de projetos
+* Organização de código
+* Consumo de APIs
+* Responsividade
+* JavaScript moderno
+* Versionamento com Git/GitHub
+* Evolução contínua por releases
 
 ---
 
-## 🛠️ TECNOLOGIAS UTILIZADAS
+# 🚀 TECNOLOGIAS UTILIZADAS
 
-* HTML5
-* CSS3
-* JavaScript (Vanilla JS)
-* OpenWeather API
-* Git & GitHub
----
-## 🔥 DESAFIOS ENFRENTADOS
+<div align="center">
 
-Durante o desenvolvimento enfrentei alguns desafios importantes, como:
+| Tecnologia      | Função                         |
+| --------------- | ------------------------------ |
+| HTML5           | Estrutura da aplicação         |
+| CSS3            | Estilização e responsividade   |
+| JavaScript      | Funcionalidades e integração   |
+| OpenWeather API | Dados climáticos em tempo real |
+| Git & GitHub    | Versionamento do projeto       |
 
-* consumo de API no front-end
-* tratamento de erros da requisição
-* organização do código
-* deploy utilizando GitHub Pages
-* gerenciamento da chave da API
----
-
-## 📚 O QUE EU TREINEI AQUI
-
-Esse projeto foi importante pra praticar:
-
-* consumo de API na prática
-* manipulação de dados JSON
-* atualização dinâmica da interface
-* estruturação de um projeto front-end
-* versionamento com Git
+</div>
 
 ---
 
-## ⚙️ COMO RODAR LOCALMENTE
+# 🎨 INTERFACE
+
+<div align="center">
+
+## Desktop
+
+<img width="1920" height="959" alt="image" src="https://github.com/user-attachments/assets/72da71ea-66ce-43d2-b240-5597297cd6e4" />
+
+
+## Mobile
+
+<img width="764" height="1536" alt="image" src="https://github.com/user-attachments/assets/fc5a3d6d-439f-49fc-a491-9ef0ebb2e780" />
+
+
+</div>
+
+---
+
+# ⚙️ FUNCIONALIDADES
+
+## ✅ Atualmente
+
+* Busca por cidade
+* Temperatura em tempo real
+* Umidade do ar
+* Descrição climática
+* Ícones climáticos
+* Busca automática por localização
+* Busca ao pressionar ENTER
+* Responsividade mobile
+* Interface moderna com glassmorphism
+* Tratamento de erros
+
+---
+
+# 🛣️ ROADMAP
+
+## ✅V1.0.0
+
+* Estrutura inicial
+* Integração com API
+* Sistema básico de clima
+
+## ✅V1.1.0
+
+* Reformulação visual
+* Melhor responsividade
+* Organização de arquitetura
+* Melhorias de desempenho
+* Tratamento de erros
+
+## V1.2.0
+
+* Melhorias de geolocalização
+* Ajustes de UX
+* Melhorias de acessibilidade
+
+## V1.3.0
+
+* Sistema dinâmico de dia/noite
+* Temas automáticos
+* Transições suaves
+
+## V1.4.0
+
+* Mascotes animados
+* Sol e lua interativos
+* Melhorias visuais avançadas
+
+## V1.5.0
+
+* Previsão de 5 dias
+* Cards climáticos avançados
+* Melhor experiência mobile
+
+---
+
+# 📂 ESTRUTURA DO PROJETO
 
 ```bash
-git clone https://github.com/etoffanin/Clima-Pro.git
-cd Clima-Pro
+ClimaPro
+│
+├── assets
+│   ├── icons
+│   └── images
+│
+├── src
+│   ├── css
+│   │   └── style.css
+│   │
+│   └── js
+│       └── script.js
+│
+├── index.html
+├── README.md
+├── package.json
+└── .gitignore
 ```
 
-Depois é só abrir o arquivo **index.html** no navegador.
+---
+
+# 🌎 COMO EXECUTAR
+
+```bash
+# Clone o repositório
+
+git clone https://github.com/etoffanin/clima-pro.git
+
+# Abra a pasta do projeto
+
+cd clima-pro
+
+# Execute com Live Server
+```
 
 ---
 
-## 🚀 PRÓXIMA EVOLUÇÃO (2.0)
+# 📈 EVOLUÇÃO DO PROJETO
 
-Quero evoluir esse projeto com:
+O Clima Pro está sendo desenvolvido por etapas, utilizando versionamento contínuo e releases organizadas.
 
-* 🌙 Tema dinâmico (dia/noite)
-* 📅 Previsão para vários dias
-* 🎨 Interface mais moderna
-* 📱 Melhor experiência no celular
+A ideia é transformar o projeto em uma aplicação cada vez mais moderna, escalável e visualmente imersiva.
 
 ---
 
-## 📌 STATUS
+# 👨‍💻 AUTOR
 
-✅ Concluído (v1.0)
+<div align="center">
 
-🔄 Em evolução para versão 2.0
+### Enzo Toffanin
 
----
+Desenvolvedor em evolução focado em Software Engineering, interfaces modernas e construção de projetos reais para portfólio.
 
-## 👨‍💻 SOBRE MIM
-
-Meu nome é Enzo Toffanin e atualmente estou estudando Engenharia de Software.
-Este projeto representa uma das minhas primeiras experiências práticas consumindo APIs e desenvolvendo aplicações web funcionais utilizando JavaScript, HTML e CSS.
+</div>
 
 ---
 
-Desenvolvido por Enzo Toffanin
+# ⭐ FUTUROS OBJETIVOS
+
+* Temas automáticos dia/noite
+* Animações climáticas
+* Sistema de partículas
+* Aplicação PWA
+* Sistema de favoritos
+* Dashboard climático avançado
+* Integração com IA
+* Experiência visual imersiva
+
+---
+
+<div align="center">
+
+### Clima Pro — Evoluindo release por release.
+
+</div>
+
+
 
