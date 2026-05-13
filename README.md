@@ -7,17 +7,19 @@ A ideia aqui foi sair da teoria e construir algo simples, mas que consome uma AP
 
 ## 🔗 ACESSE O PROJETO
 
-👉 https://etoffanin.github.io/Clima-Pro-1.0/
+👉 https://etoffanin.github.io/Clima-Pro/
 
 ---
 
 ## 📸 PREVIEW
 
 Versão no DeskTop
-<img width="1023" height="535" alt="CLIMAPRO_" src="https://github.com/user-attachments/assets/15bca8c1-70d8-4c5f-820b-e0d5c876fc77" />
+<<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/5d051800-4db2-4344-b4db-598fcb433b2f" />
+ />
 
 Versão no Celular
-<img width="720" height="1600" alt="climapromob" src="https://github.com/user-attachments/assets/5d6f08a1-0e85-4acf-b11c-29522848c95d" />
+<<img width="720" height="1600" alt="WhatsApp Image 2026-05-07 at 19 49 21" src="https://github.com/user-attachments/assets/efacda92-9942-4a1b-912e-7e9c700abb46" />
+ />
 
 *
 
@@ -73,7 +75,16 @@ Tudo isso manipulando o DOM.
 * JavaScript (Vanilla JS)
 * OpenWeather API
 * Git & GitHub
+---
+## 🔥 DESAFIOS ENFRENTADOS
 
+Durante o desenvolvimento enfrentei alguns desafios importantes, como:
+
+* consumo de API no front-end
+* tratamento de erros da requisição
+* organização do código
+* deploy utilizando GitHub Pages
+* gerenciamento da chave da API
 ---
 
 ## 📚 O QUE EU TREINEI AQUI
@@ -91,8 +102,8 @@ Esse projeto foi importante pra praticar:
 ## ⚙️ COMO RODAR LOCALMENTE
 
 ```bash
-git clone https://github.com/etoffanin/Clima-Pro-1.0.git
-cd Clima-Pro-1.0
+git clone https://github.com/etoffanin/Clima-Pro.git
+cd Clima-Pro
 ```
 
 Depois é só abrir o arquivo **index.html** no navegador.
@@ -110,10 +121,18 @@ Quero evoluir esse projeto com:
 
 ---
 
+## 📌 STATUS
+
+✅ Concluído (v1.0)
+
+🔄 Em evolução para versão 2.0
+
+---
+
 ## 👨‍💻 SOBRE MIM
 
-Meu nome é Enzo e estou começando na área de desenvolvimento.
-Esse projeto faz parte da minha evolução prática.
+Meu nome é Enzo Toffanin e atualmente estou estudando Engenharia de Software.
+Este projeto representa uma das minhas primeiras experiências práticas consumindo APIs e desenvolvendo aplicações web funcionais utilizando JavaScript, HTML e CSS.
 
 ---
 
