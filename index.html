@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previsão do Tempo Pro</title>
+    <title>Clima Pro | Previsão do Tempo</title>
 
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="caixa-maior">
-    <div class="topo">
-        <input 
-            class="input-cidade" 
-            placeholder="Digite o nome da sua cidade"
-        >
-        <button onclick="cliqueiNoBotao()">
-            <i class="fa-solid fa-magnifying-glass"></i> 
-        </button>
-    </div>
+    <main class="app">
+        <section class="weather-card">
+            <header class="app-header">
+                <div>
+                    <span class="app-label">CLIMA PRO</span>
+                    <h1>Previsão do tempo</h1>
+                </div>
 
-    <div class="caixa-media">
-        <h2 class="cidade">Tempo em...</h2>
-        <p class="temp">--°C</p>
+                <span class="status-badge">v1.1.0</span>
+            </header>
 
-        <div class="caixa-menor">
-            <img class="img-previsao" src="" alt="Ícone do clima">
-            <p class="texto-previsao">---</p>
-        </div>
+            <div class="search-area">
+                <input 
+                    class="input-cidade" 
+                    type="text"
+                    name="cidade"
+                    placeholder="Digite o nome da sua cidade"
+                    aria-label="Digite o nome da cidade"
+                    autocomplete="address-level2"
+                    enterkeyhint="search"
+                >
 
-        <p class="umidade">Umidade: --%</p>
-    </div>
-</div>
+                <button class="search-button" type="button" aria-label="Buscar clima">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 
+                </button>
+            </div>
 
-<script src="script.js"></script>
+            <div class="weather-content">
+                <h2 class="cidade">Tempo em...</h2>
+                <p class="temp">--°C</p>
+
+                <div class="weather-info">
+                    <img class="img-previsao" alt="Ícone do clima" hidden>
+                    <p class="texto-previsao">---</p>
+                </div>
+
+                <div class="details-row">
+                    <p class="umidade">Umidade: --%</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./src/js/script.js?v=1.1.0-fix-js"></script>
 
 </body>
 </html>

@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(135deg, rgba(7, 25, 45, 0.92), rgba(20, 79, 130, 0.65)),
+        url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.app {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.weather-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(9, 20, 35, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    animation: cardEntry 0.7s ease;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.app-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #8fd8ff;
+}
+
+.app-header h1 {
+    margin-top: 6px;
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+.status-badge {
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #091423;
+    background: #8fd8ff;
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.input-cidade {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 15px 17px;
+    border-radius: 999px;
+    font-size: 15px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.input-cidade::placeholder {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.search-button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #091423;
+    background: #ffffff;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.search-button:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.04);
+    background: #8fd8ff;
+}
+
+.search-button:disabled {
+    cursor: progress;
+    opacity: 1;
+}
+
+.weather-content {
+    margin-top: 30px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.weather-content.loading {
+    opacity: 0.55;
+    transform: scale(0.98);
+}
+
+.weather-content.show {
+    animation: weatherUpdate 0.45s ease;
+}
+
+.cidade {
+    font-size: 21px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.temp {
+    margin: 14px 0;
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -4px;
+}
+
+.weather-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.img-previsao {
+    width: 64px;
+    height: 64px;
+}
+
+.img-previsao[hidden] {
+    display: none;
+}
+
+.texto-previsao {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.details-row {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.umidade {
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes weatherUpdate {
+    from {
+        opacity: 0.35;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .weather-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .app-header h1 {
+        font-size: 24px;
+    }
+
+    .temp {
+        font-size: 58px;
+    }
+
+    .cidade {
+        font-size: 18px;
+    }
+
+    .search-area {
+        gap: 8px;
+    }
+
+    .input-cidade {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .search-button {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+    }
+}
