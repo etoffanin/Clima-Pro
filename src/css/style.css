@@ -178,6 +178,62 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
+.location-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.location-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+
+    padding: 9px 14px;
+
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.location-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-1px);
+}
+
+.location-button:disabled {
+    cursor: progress;
+    opacity: 0.55;
+}
+
+.feedback-message {
+    margin-top: 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.feedback-message[hidden] {
+    display: none;
+}
+
 @keyframes cardEntry {
     from {
         opacity: 0;

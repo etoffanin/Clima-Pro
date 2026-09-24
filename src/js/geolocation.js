@@ -4,12 +4,28 @@ const GEOLOCATION_OPTIONS = {
     timeout: 10000
 };
 
+function normalizarErroGeolocalizacao(erro) {
+    switch (erro?.code) {
+        case 1:
+            return new Error("Acesso à localização não autorizado.");
+
+        case 2:
+            return new Error("Não foi possível determinar sua localização.");
+
+        case 3:
+            return new Error("A localização demorou muito para responder.");
+
+        default:
+            return new Error("Não foi possível obter sua localização.");
+    }
+}
+
 export function obterLocalizacaoAtual() {
     return new Promise((resolve, reject) => {
         if (!("geolocation" in navigator)) {
             reject(
                 new Error(
-                    "Geolocalização não suportada neste navegador."
+                    "Geolocalização não disponível neste navegador."
                 )
             );
 
@@ -25,7 +41,9 @@ export function obterLocalizacaoAtual() {
             },
 
             (erro) => {
-                reject(erro);
+                reject(
+                    normalizarErroGeolocalizacao(erro)
+                );
             },
 
             GEOLOCATION_OPTIONS

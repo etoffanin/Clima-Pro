@@ -1,24 +1,32 @@
 let elementos = {};
+
 let uiInicializada = false;
-let eventosRegistrados = false;
+let eventosBuscaRegistrados = false;
+let eventoLocalizacaoRegistrado = false;
 
 function obterElementos() {
     return {
         inputCidade: document.querySelector(".input-cidade"),
         botaoBusca: document.querySelector(".search-button"),
+        botaoLocalizacao: document.querySelector(".location-button"),
+
         cidade: document.querySelector(".cidade"),
         temperatura: document.querySelector(".temp"),
         previsao: document.querySelector(".texto-previsao"),
         umidade: document.querySelector(".umidade"),
         icone: document.querySelector(".img-previsao"),
+
+        feedback: document.querySelector(".feedback-message"),
         weatherContent: document.querySelector(".weather-content")
     };
 }
 
 function atualizarTexto(elemento, texto) {
-    if (elemento) {
-        elemento.textContent = texto;
+    if (!elemento) {
+        return;
     }
+
+    elemento.textContent = texto;
 }
 
 function esconderIcone() {
@@ -57,6 +65,7 @@ export function inicializarUI() {
     }
 
     elementos = obterElementos();
+
     const obrigatorios = [
         elementos.inputCidade,
         elementos.botaoBusca,
@@ -83,6 +92,7 @@ export function inicializarUI() {
     );
 
     uiInicializada = true;
+
     return true;
 }
 
@@ -123,6 +133,49 @@ export function mostrarErro(mensagem) {
     elementos.weatherContent.classList.remove("show");
 }
 
+export function mostrarFeedback(mensagem) {
+    if (!elementos.feedback) {
+        return;
+    }
+
+    atualizarTexto(elementos.feedback, mensagem);
+
+    elementos.feedback.hidden = false;
+}
+
+export function esconderFeedback() {
+    if (!elementos.feedback) {
+        return;
+    }
+
+    atualizarTexto(elementos.feedback, "");
+
+    elementos.feedback.hidden = true;
+}
+
+export function definirLocalizacaoCarregando(carregando) {
+    const { botaoLocalizacao } = elementos;
+
+    if (!botaoLocalizacao) {
+        return;
+    }
+
+    botaoLocalizacao.disabled = carregando;
+
+    botaoLocalizacao.setAttribute(
+        "aria-busy",
+        String(carregando)
+    );
+
+    const texto = botaoLocalizacao.querySelector("span");
+
+    if (texto) {
+        texto.textContent = carregando
+            ? "Obtendo localização..."
+            : "Usar minha localização";
+    }
+}
+
 export function renderizarClima(dados) {
     const clima = dados.weather[0];
 
@@ -161,23 +214,27 @@ export function renderizarClima(dados) {
 }
 
 export function obterCidadeDigitada() {
-    return elementos.inputCidade.value.trim();
+    return elementos.inputCidade?.value.trim() || "";
 }
 
 export function limparCampoCidade() {
-    elementos.inputCidade.value = "";
+    if (elementos.inputCidade) {
+        elementos.inputCidade.value = "";
+    }
 }
 
 export function focarCampoCidade() {
-    elementos.inputCidade.focus();
+    elementos.inputCidade?.focus();
 }
 
 export function registrarEventosBusca(callback) {
-    if (eventosRegistrados || !uiInicializada) {
+    if (
+        eventosBuscaRegistrados ||
+        !uiInicializada
+    ) {
         return;
     }
 
-    eventosRegistrados = true;
     elementos.botaoBusca.addEventListener(
         "click",
         callback
@@ -186,12 +243,36 @@ export function registrarEventosBusca(callback) {
     elementos.inputCidade.addEventListener(
         "keydown",
         (evento) => {
-            if (evento.key !== "Enter" || evento.repeat || evento.isComposing) {
+            if (
+                evento.key !== "Enter" ||
+                evento.repeat ||
+                evento.isComposing
+            ) {
                 return;
             }
 
             evento.preventDefault();
+
             callback();
         }
     );
+
+    eventosBuscaRegistrados = true;
+}
+
+export function registrarEventoLocalizacao(callback) {
+    if (
+        eventoLocalizacaoRegistrado ||
+        !uiInicializada ||
+        !elementos.botaoLocalizacao
+    ) {
+        return;
+    }
+
+    elementos.botaoLocalizacao.addEventListener(
+        "click",
+        callback
+    );
+
+    eventoLocalizacaoRegistrado = true;
 }

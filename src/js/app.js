@@ -12,17 +12,23 @@ import {
     obterCidadeDigitada,
     limparCampoCidade,
     focarCampoCidade,
-    registrarEventosBusca
+    registrarEventosBusca,
+    mostrarFeedback,
+    esconderFeedback,
+    definirLocalizacaoCarregando,
+    registrarEventoLocalizacao
 } from "./ui.js";
 
 import {
     obterLocalizacaoAtual
 } from "./geolocation.js";
 
+
 let identificadorBusca = 0;
 let usuarioFezBuscaManual = false;
+let localizacaoEmAndamento = false;
 let appInicializado = false;
-let cidadeEmBusca = null;
+
 
 async function carregarClima(
     parametros,
@@ -55,6 +61,8 @@ async function carregarClima(
             return;
         }
 
+        console.error(erro);
+
         mostrarErro(
             erro.message ||
             "Erro ao buscar dados do clima."
@@ -67,17 +75,13 @@ async function carregarClima(
     }
 }
 
+
 async function buscarCidade() {
     usuarioFezBuscaManual = true;
 
+    esconderFeedback();
+
     const cidade = obterCidadeDigitada();
-
-    if (cidade && cidade === cidadeEmBusca?.cidade) {
-        return;
-    }
-
-    const buscaManual = cidade ? { cidade } : null;
-    cidadeEmBusca = buscaManual;
 
     if (!cidade) {
         identificadorBusca++;
@@ -98,13 +102,21 @@ async function buscarCidade() {
         "Buscando cidade...",
         true
     );
-
-    if (cidadeEmBusca === buscaManual) {
-        cidadeEmBusca = null;
-    }
 }
 
-async function buscarLocalizacaoInicial() {
+
+async function buscarPorLocalizacao({
+    automatica = false
+} = {}) {
+    if (localizacaoEmAndamento) {
+        return;
+    }
+
+    localizacaoEmAndamento = true;
+
+    esconderFeedback();
+    definirLocalizacaoCarregando(true);
+
     try {
         const {
             latitude,
@@ -112,10 +124,11 @@ async function buscarLocalizacaoInicial() {
         } = await obterLocalizacaoAtual();
 
         /*
-         * Evita que uma localização automática atrasada
-         * sobrescreva uma cidade pesquisada manualmente.
+         * Se o usuário pesquisou manualmente enquanto
+         * a localização automática estava sendo obtida,
+         * não sobrescrevemos a pesquisa dele.
          */
-        if (usuarioFezBuscaManual) {
+        if (automatica && usuarioFezBuscaManual) {
             return;
         }
 
@@ -129,14 +142,28 @@ async function buscarLocalizacaoInicial() {
 
     } catch (erro) {
         console.warn(
-            "Localização não autorizada ou indisponível.",
-            erro?.message || erro
+            "Falha na geolocalização:",
+            erro
         );
+
+        mostrarFeedback(
+            erro.message ||
+            "Não foi possível obter sua localização."
+        );
+
+    } finally {
+        localizacaoEmAndamento = false;
+
+        definirLocalizacaoCarregando(false);
     }
 }
 
+
 function iniciarApp() {
-    if (appInicializado || !inicializarUI()) {
+    if (
+        appInicializado ||
+        !inicializarUI()
+    ) {
         return;
     }
 
@@ -144,11 +171,14 @@ function iniciarApp() {
 
     registrarEventosBusca(buscarCidade);
 
-    buscarLocalizacaoInicial();
+    registrarEventoLocalizacao(() => {
+        buscarPorLocalizacao();
+    });
+
+    buscarPorLocalizacao({
+        automatica: true
+    });
 }
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", iniciarApp, { once: true });
-} else {
-    iniciarApp();
-}
+
+iniciarApp();
