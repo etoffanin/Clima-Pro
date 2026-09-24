@@ -1,5 +1,4 @@
 (() => {
-    // Em GitHub Pages o projeto é front-end puro; por isso a chave fica visível no navegador.
     const API_KEY = "921dffdcf9f45632fab536a0fc7a6850";
     const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 

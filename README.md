@@ -1,206 +1,170 @@
-# <div align="center">🌦️ CLIMA PRO</div>
+# 🌦️ CLIMA PRO 1.2.0
 
-<div align="center">
-
-### Aplicação moderna de previsão do tempo com foco em experiência visual, responsividade e evolução contínua.
-
-<img src="https://img.shields.io/badge/version-v1.1.0-8fd8ff?style=for-the-badge">
-<img src="https://img.shields.io/badge/status-em%20desenvolvimento-0f172a?style=for-the-badge">
-<img src="https://img.shields.io/badge/project-personal-1e293b?style=for-the-badge">
-
-</div>
+Esse foi meu primeiro projeto de previsão do tempo funcionando de verdade na web.
+A ideia aqui foi sair da teoria e construir algo simples, mas que consome uma API real e entrega informação útil.
 
 ---
 
-# 📌 SOBRE O PROJETO
+## 🔗 ACESSE O PROJETO
 
-O **Clima Pro** é um projeto focado em previsão do tempo com uma interface moderna, minimalista e responsiva.
-
-A proposta do projeto vai além de apenas mostrar temperatura e clima atual. O objetivo é criar uma experiência visual agradável, dinâmica e futuramente interativa, com temas automáticos, animações climáticas e funcionalidades inteligentes.
-
-Esse projeto também faz parte da minha evolução como desenvolvedor, sendo utilizado para praticar:
-
-* Estruturação de projetos
-* Organização de código
-* Consumo de APIs
-* Responsividade
-* JavaScript moderno
-* Versionamento com Git/GitHub
-* Evolução contínua por releases
+👉 https://etoffanin.github.io/Clima-Pro/
 
 ---
 
-# 🚀 TECNOLOGIAS UTILIZADAS
+## 📸 PREVIEW
 
-<div align="center">
+Versão no DeskTop
+<<img width="1920" height="1037" alt="image" src="https://github.com/user-attachments/assets/5d051800-4db2-4344-b4db-598fcb433b2f" />
+ />
 
-| Tecnologia      | Função                         |
-| --------------- | ------------------------------ |
-| HTML5           | Estrutura da aplicação         |
-| CSS3            | Estilização e responsividade   |
-| JavaScript      | Funcionalidades e integração   |
-| OpenWeather API | Dados climáticos em tempo real |
-| Git & GitHub    | Versionamento do projeto       |
+Versão no Celular
+<<img width="720" height="1600" alt="WhatsApp Image 2026-05-07 at 19 49 21" src="https://github.com/user-attachments/assets/efacda92-9942-4a1b-912e-7e9c700abb46" />
+ />
 
-</div>
+*
 
 ---
 
-# 🎨 INTERFACE
+## ✨ FUNCIONALIDADES
 
-<div align="center">
+✔️ Busca de clima por cidade
 
-## Desktop
+✔️ Temperatura atual em tempo real
 
-<img width="1920" height="959" alt="image" src="https://github.com/user-attachments/assets/72da71ea-66ce-43d2-b240-5597297cd6e4" />
+✔️ Condição do clima (ex: nublado, ensolarado)
 
+✔️ Integração com API externa
 
-## Mobile
+✔️ Projeto online via GitHub Pages
 
-<img width="764" height="1536" alt="image" src="https://github.com/user-attachments/assets/fc5a3d6d-439f-49fc-a491-9ef0ebb2e780" />
+✔️ Geolocalização automática
 
-
-</div>
-
----
-
-# ⚙️ FUNCIONALIDADES
-
-## ✅ Atualmente
-
-* Busca por cidade
-* Temperatura em tempo real
-* Umidade do ar
-* Descrição climática
-* Ícones climáticos
-* Busca automática por localização
-* Busca ao pressionar ENTER
-* Responsividade mobile
-* Interface moderna com glassmorphism
-* Tratamento de erros
 
 ---
 
-# 🛣️ ROADMAP
+## 🧠 COMO FUNCIONA POR TRÁS
 
-## ✅V1.0.0
+A lógica do projeto é:
 
-* Estrutura inicial
-* Integração com API
-* Sistema básico de clima
+1. O usuário digita o nome da cidade
+2. O JavaScript captura esse valor
+3. Faço uma requisição para a API usando `fetch`
+4. Recebo os dados em JSON
+5. Atualizo o HTML com as informações
 
-## ✅V1.1.0
+Exemplo da requisição:
 
-* Reformulação visual
-* Melhor responsividade
-* Organização de arquitetura
-* Melhorias de desempenho
-* Tratamento de erros
-
-## V1.2.0
-
-* Melhorias de geolocalização
-* Ajustes de UX
-* Melhorias de acessibilidade
-
-## V1.3.0
-
-* Sistema dinâmico de dia/noite
-* Temas automáticos
-* Transições suaves
-
-## V1.4.0
-
-* Mascotes animados
-* Sol e lua interativos
-* Melhorias visuais avançadas
-
-## V1.5.0
-
-* Previsão de 5 dias
-* Cards climáticos avançados
-* Melhor experiência mobile
-
----
-
-# 📂 ESTRUTURA DO PROJETO
-
-```bash
-ClimaPro
-│
-├── assets
-│   ├── icons
-│   └── images
-│
-├── src
-│   ├── css
-│   │   └── style.css
-│   │
-│   └── js
-│       └── script.js
-│
-├── index.html
-├── README.md
-├── package.json
-└── .gitignore
+```javascript
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=SUA_API_KEY&units=metric`)
 ```
 
+Depois disso, uso os dados retornados pra mostrar:
+
+* temperatura
+* clima
+* informações principais
+
+Tudo isso manipulando o DOM.
+
 ---
 
-# 🌎 COMO EXECUTAR
+## 🛠️ TECNOLOGIAS UTILIZADAS
+
+* HTML5
+* CSS3
+* JavaScript (Vanilla JS)
+* OpenWeather API
+* Git & GitHub
+---
+## 🔥 DESAFIOS ENFRENTADOS
+
+Durante o desenvolvimento enfrentei alguns desafios importantes, como:
+
+* consumo de API no front-end
+* tratamento de erros da requisição
+* organização do código
+* deploy utilizando GitHub Pages
+* gerenciamento da chave da API
+---
+
+## 📚 O QUE EU TREINEI AQUI
+
+Esse projeto foi importante pra praticar:
+
+* consumo de API na prática
+* manipulação de dados JSON
+* atualização dinâmica da interface
+* estruturação de um projeto front-end
+* versionamento com Git
+
+---
+
+## ⚙️ COMO RODAR LOCALMENTE
 
 ```bash
-# Clone o repositório
-
-git clone https://github.com/etoffanin/clima-pro.git
-
-# Abra a pasta do projeto
-
-cd clima-pro
-
-# Execute com Live Server
+git clone https://github.com/etoffanin/Clima-Pro.git
+cd Clima-Pro
 ```
 
+Abra a pasta raiz no VS Code e use **Open with Live Server** no
+`index.html` da raiz. A configuração local usa a porta 5501:
+`http://localhost:5501/`.
+
+Não abra o arquivo por duplo clique (`file://`): os ES Modules precisam
+ser servidos por HTTP/HTTPS. O servidor deve entregar `.js` como JavaScript
+e `.css` como CSS. Não é necessário build nem instalar dependências.
+
+No GitHub Pages, publique a raiz (`/`) da branch que contém o projeto.
+O único ponto de entrada é `./src/js/app.js?v=1.2.0`, que importa
+`api.js`, `ui.js` e `geolocation.js`. A localização depende da permissão
+do navegador e de HTTPS (ou localhost); a busca manual funciona sem ela.
+
+A chave OpenWeather é configurada em `src/js/api.js`. O servidor da API
+determina se ela está ativa e autorizada. Uma resposta 401 aparece na
+interface; não há validação por tamanho ou formato que bloqueie o fetch.
+Como este é um front-end estático, essa chave é pública no navegador.
+`dotenv`, `node_modules`, `package.json`, `package-lock.json` e `.env`
+não participam da execução atual; foram mantidos para revisão.
+
+O antigo `src/js/script.js` foi mantido como backup da refatoração, sem
+referência no HTML. Ele duplica a implementação modular e não deve ser
+carregado junto com `app.js`.
+
+Para executar os testes de regressão, abra `/tests/smoke.html` pelo mesmo
+servidor local. Os testes usam respostas simuladas da API e geolocalização,
+sem consumir a cota da OpenWeather. Eles verificam recursos locais, tipos
+MIME, erros HTTP, cancelamento, busca manual, concorrência e layout em
+375 e 1280 pixels. A consulta real da API deve ser verificada separadamente.
+
+Referência: [execução de ES Modules por HTTP e tipos MIME (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+
 ---
 
-# 📈 EVOLUÇÃO DO PROJETO
+## 🚀 PRÓXIMA EVOLUÇÃO (2.0)
 
-O Clima Pro está sendo desenvolvido por etapas, utilizando versionamento contínuo e releases organizadas.
+Quero evoluir esse projeto com:
 
-A ideia é transformar o projeto em uma aplicação cada vez mais moderna, escalável e visualmente imersiva.
-
----
-
-# 👨‍💻 AUTOR
-
-<div align="center">
-
-### Enzo Toffanin
-
-Desenvolvedor em evolução focado em Software Engineering, interfaces modernas e construção de projetos reais para portfólio.
-
-</div>
+* 🌙 Tema dinâmico (dia/noite)
+* 📅 Previsão para vários dias
+* 🎨 Interface mais moderna
+* 📱 Melhor experiência no celular
 
 ---
 
-# ⭐ FUTUROS OBJETIVOS
+## 📌 STATUS
 
-* Temas automáticos dia/noite
-* Animações climáticas
-* Sistema de partículas
-* Aplicação PWA
-* Sistema de favoritos
-* Dashboard climático avançado
-* Integração com IA
-* Experiência visual imersiva
+✅ Concluído (v1.0)
+
+🔄 Em evolução para versão 2.0
 
 ---
 
-<div align="center">
+## 👨‍💻 SOBRE MIM
 
-### Clima Pro — Evoluindo release por release.
+Meu nome é Enzo Toffanin e atualmente estou estudando Engenharia de Software.
+Este projeto representa uma das minhas primeiras experiências práticas consumindo APIs e desenvolvendo aplicações web funcionais utilizando JavaScript, HTML e CSS.
 
-</div>
+---
 
-
+Desenvolvido por Enzo Toffanin
 

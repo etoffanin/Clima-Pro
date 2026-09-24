@@ -20,7 +20,7 @@
                     <h1>Previsão do tempo</h1>
                 </div>
 
-                <span class="status-badge">v1.1.0</span>
+                <span class="status-badge">v1.2.0</span>
             </header>
 
             <div class="search-area">
@@ -39,7 +39,11 @@
                 </button>
             </div>
 
-            <div class="weather-content">
+               <div
+                  class="weather-content"
+                  role="status"
+                  aria-live="polite"
+                >
                 <h2 class="cidade">Tempo em...</h2>
                 <p class="temp">--°C</p>
 
@@ -55,7 +59,7 @@
         </section>
     </main>
 
-    <script src="./src/js/script.js?v=1.1.0-fix-js"></script>
+    <script type="module" src="./src/js/app.js?v=1.2.0"></script>
 
 </body>
 </html>
